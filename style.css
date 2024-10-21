@@ -634,3 +634,8 @@ footer{
         width: 100%;
     }
 }
+#msg{
+    color: #00B5E7;
+    margin-top: -40px;
+    display: block;
+}
