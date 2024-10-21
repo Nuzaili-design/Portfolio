@@ -183,14 +183,14 @@
                     </div>
                    
                     <div class="col">
-                        <form action="https://example.com/submit-form" method="POST">
+                        <form name="submit-to-google-sheet">
                             <div class="form-control">
                                 <div class="form-inputs">
-                                    <input type="text" class="input-field" name="name" placeholder="Name" required>
-                                    <input type="email" class="input-field" name="email" placeholder="Email" required>
+                                    <input type="text" class="input-field" name="Name" placeholder="Name" required>
+                                    <input type="email" class="input-field" name="Email" placeholder="Email" required>
                                 </div>
                                 <div class="text-area">
-                                    <textarea name="message" placeholder="Message" required></textarea>
+                                    <textarea name="Message" placeholder="Message" required></textarea>
                                 </div>
                                 <div class="form-button">
                                     <button type="submit" class="btn">Send <i class="uil uil-message"></i></button>
@@ -235,5 +235,17 @@
     <!-- ----- SCROLL REVEAL JS Link----- -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwkzNwyEnleC71wOx-RtziOwblQPlgoMsRAgrVsjiv9p3d-RI4I53eYkKe7x1ndcVVB/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body>
 </html>
