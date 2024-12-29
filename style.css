@@ -485,16 +485,11 @@ textarea{
     color: var(--color-white);
 }
 .form-button>.btn:hover{
-    background: #121212;
+    background: #00B5E7;
 }
 .form-button i{
     font-size: 18px;
     rotate: -45deg;
-}
-.contact-info:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 
