@@ -485,7 +485,7 @@ textarea{
     color: var(--color-white);
 }
 .form-button>.btn:hover{
-    background: #00B5E7;
+    background: #121212;
 }
 .form-button i{
     font-size: 18px;
