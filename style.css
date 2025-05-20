@@ -17,6 +17,20 @@
     --first-shadow-color: rgba(0, 0, 0, 0.1);
 
 }
+body.dark-mode {
+    --body-color: #121212;
+    --color-white: #1e1e1e;
+
+    --text-color-second: #f0f0f0;
+    --text-color-third: #4fd6d6;
+
+    --first-color: #6c5ce7;
+    --first-color-hover: #4834d4;
+
+    --second-color: #6c5ce7;
+    --third-color: #fbc531;
+    --first-shadow-color: rgba(19, 1, 1, 0.1);
+}
 
 /* ----- BASE ----- */
 *{
@@ -102,23 +116,32 @@ nav{
 .nav-name{
     font-size: 30px;
     font-weight: 600;
-    color: var(--text-color-third);
+   background: linear-gradient(135deg, #007bff, #4a00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .nav-logo span{
     position: absolute;
     top: -15px;
     right: -20px;
     font-size: 5em;
-    color: var(--text-color-second);
+background: linear-gradient(135deg, #007bff, #4a00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .nav-menu, .nav_menu_list{
     display: flex;
+    
 }
 .nav-menu .nav_list{
     list-style: none;
     position: relative;
+    
+    
+    
 }
 .nav-link{
+     position: relative;
     text-decoration: none;
     color: var(--text-color-second);
     font-weight: 500;
@@ -131,6 +154,7 @@ nav{
 .nav-menu-btn i{
     font-size: 28px;
     cursor: pointer;
+    color: var(--first-color);
 }
 .active-link{
     position: relative;
@@ -138,18 +162,19 @@ nav{
     transition: .3;
 }
 .active-link::after{
-    content: '';
+   content: '';
     position: absolute;
-    left: 50%;
-    bottom: -15px;
-    transform: translate(-50%, -50%);
-    width: 5px;
-    height: 5px;
-    background: var(--first-color);
-    border-radius: 50%;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: var(--first-color); /* Match your blue/gradient base */
+    transition: width 0.3s ease;
 }
 
-
+.nav-link:hover::after {
+    width: 100%;
+}
 /* ----- WRAPPER DESIGN ----- */
 .wrapper{
     padding-inline: 10vw;
@@ -175,10 +200,11 @@ nav{
     padding-left: 20px;
 }
 .featured-text-card span{
-    background: var(--third-color);
-    color: var(--color-white);
+    background: linear-gradient(135deg, #007bff, #4a00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     padding: 3px 8px;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 5px;
 }
 .featured-name{
@@ -189,12 +215,16 @@ nav{
 }
 .typedText{
     text-transform: capitalize;
-    color: var(--text-color-third);
+    background: linear-gradient(135deg, #007bff, #4a00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .featured-text-info{
     font-size: 15px;
     margin-bottom: 30px;
-    color: var(--text-color-second);
+    background: linear-gradient(135deg, #007bff83, #4b00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .featured-text-btn{
     display: flex;
@@ -316,7 +346,7 @@ h3{
     padding-inline: 20px;
     width: 100%;
     background: var(--color-white);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(0, 0, 0, 0.129) 0px 30px 60px -30px;
     border-radius: 20px;
 }
 .about-info p{
@@ -375,11 +405,11 @@ h3{
     height: 300px;
     background: var(--color-white);
     border-radius: 20px;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    box-shadow: rgba(0, 0, 0, 0.129) 0px 30px 60px -30px;
     overflow: hidden;
     padding: 20px;
     text-align: center;
-    transition: all 0.4s ease;
+    transition: all 0.8s ease;
 }
 
 .project-box > i {
@@ -469,7 +499,7 @@ h3{
     height: 315px;
     background: var(--second-color); /* Keep original background */
     border-radius: 20px; /* Match project box */
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; /* Updated shadow to match */
+    box-shadow: rgba(0, 0, 0, 0.129) 0px 30px 60px -30px;/* Updated shadow to match */
     overflow: hidden;
     transition: all 0.4s ease;
     text-align: center;
@@ -592,6 +622,7 @@ footer{
 .top-footer p{
     font-size: 25px;
     font-weight: 600;
+    color:  #006ce0;;
 }
 .middle-footer .footer-menu{
     display: flex;
@@ -601,7 +632,7 @@ footer{
 }
 .footer_menu_list a{
     text-decoration: none;
-    color: var(--text-color-second);
+    color: var(--text-color-first);
     font-weight: 500;
     margin-inline: 20px;
 }
@@ -612,8 +643,11 @@ footer{
 .bottom-footer{
     font-size: 14px;
     margin-top: 10px;
+    
 }
-
+.text-muted {
+    color: #6c757d;
+}
 
 /* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
 @media only screen and (max-width: 1024px){
@@ -631,6 +665,17 @@ footer{
     .nav-button{
         display: none;
     }
+     /* Allow inside nav-menu if needed */
+    .nav-menu.responsive .nav-button.mobile-visible {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .nav-button {
+    display: flex;
+    gap: 10px;
+}
     .nav-menu.responsive{
         left: 0;
     }

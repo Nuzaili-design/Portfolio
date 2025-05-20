@@ -33,7 +33,7 @@ function myMenuFunction(){
 
 /* ----- TYPING EFFECT ----- */
  let typingEffect = new Typed(".typedText",{
-    strings : ["Software Engineer","Data Analyst"],
+    strings : ["Software Eng","Data Analyst"],
     loop : true,
     typeSpeed : 100, 
     backSpeed : 80,
@@ -44,9 +44,9 @@ function myMenuFunction(){
 /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
  const sr = ScrollReveal({
         origin: 'top',
-        distance: '80px',
-        duration: 2000,
-        reset: true     
+        distance: '60px',
+        duration: 1500,
+        reset: false    
  })
 
 /* -- HOME -- */
@@ -59,7 +59,13 @@ sr.reveal('.featured-image',{delay: 300})
 
 
 /* -- PROJECT BOX -- */
-sr.reveal('.project-box',{interval: 200})
+sr.reveal('.project-box', {
+  origin: 'right',
+  distance: '40px', // optional: reduce for subtler effect
+  duration: 800,    // faster animation
+  interval: 200     // keeps staggered appearance
+});
+
 
 /* -- HEADINGS -- */
 sr.reveal('.top-header',{})
@@ -71,7 +77,7 @@ const srLeft = ScrollReveal({
   origin: 'left',
   distance: '80px',
   duration: 2000,
-  reset: true
+  reset: false
 })
 
 srLeft.reveal('.about-info',{delay: 100})
@@ -82,7 +88,7 @@ const srRight = ScrollReveal({
   origin: 'right',
   distance: '80px',
   duration: 2000,
-  reset: true
+  reset: false
 })
 
 srRight.reveal('.skills-box',{delay: 100})
@@ -115,3 +121,26 @@ function scrollActive() {
 }
 
 window.addEventListener('scroll', scrollActive)
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const navMenu = document.getElementById("myNavMenu");
+    navMenu.className = "nav-menu"; // Remove 'responsive'
+  });
+});
+// Toggle theme on click
+const toggle = document.getElementById("darkModeToggle");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  
+  // Optional: store preference
+  const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+  localStorage.setItem("theme", theme);
+});
+
+// Load stored theme on page load
+window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+});
