@@ -521,7 +521,10 @@ h3{
     z-index: 2;
     transition: color 0.3s;
 }
-
+.contact-info p > a{
+text-decoration: none;
+  color: var(--color-white);
+}
 .contact-info p > i {
     font-size: 18px;
     z-index: 2;
@@ -546,7 +549,8 @@ h3{
 
 .contact-info:hover h2,
 .contact-info:hover p,
-.contact-info:hover i {
+.contact-info:hover i,
+.contact-info:hover a {
     color: #777;
 }
 
@@ -572,6 +576,7 @@ h3{
     border-radius: 10px;
     padding-inline: 20px;
     outline: none;
+    color: var(--text-color-second);
 }
 textarea{
     width: 100%;
@@ -582,6 +587,7 @@ textarea{
     padding: 15px 20px;
     outline: none;
     resize: none;
+    color: var(--text-color-second);
 }
 .form-button>.btn{
     display: flex;
