@@ -144,3 +144,87 @@ window.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("dark-mode");
   }
 });
+ // Arabic And English 
+
+ const translations = {
+  en: {
+    name: "Abdulaziz Alnuzaili",
+    title: "Software Engineer and Data Analyst with a passion for building intelligent, user-focused applications and extracting insights from data.",
+    about: "About Me",
+    aboutContent: "I am a Software Engineer with a background in both web development and data analysis. I develop responsive websites using HTML, CSS, JavaScript, PHP, and MySQL. In addition, I analyze and visualize data using tools like Excel, Power BI, and SQL to uncover insights and support data-driven decisions.",
+    frontend: "Frontend",
+    backend: "Backend",
+    dataAnalysis: "Data Analysis",
+    projects: "Projects",
+    project1Title: "Smart Quiz Website",
+    project1Desc: "Admin can create quizzes, and students can take them and view results in real-time.",
+    project2Title: "Personal Blog website",
+    project2Desc: "Bloggers can create, publish, and manage their personal blogs easily.",
+    project3Title: "Car Parking System",
+    project3Desc: "Users can log in, view available slots, and book parking in real-time.",
+    contact: "Get in touch",
+    contactSub: "Do you have a project in your mind, contact me here",
+    findMe: "Find Me",
+    namePlaceholder: "Name",
+    emailPlaceholder: "Email",
+    messagePlaceholder: "Message",
+    sendBtn: "Send",
+    scrollDown: "Scroll Down"
+  },
+  ar: {
+    name: "عبدالعزيز النزلي",
+    title: "مهندس برمجيات ومحلل بيانات شغوف ببناء تطبيقات ذكية تركز على المستخدم واستخلاص الرؤى من البيانات.",
+    about: "نبذة عني",
+    aboutContent: "أنا مهندس برمجيات بخلفية في تطوير الويب وتحليل البيانات. أقوم بتطوير مواقع متجاوبة باستخدام HTML وCSS وJavaScript وPHP وMySQL. بالإضافة إلى ذلك، أحلل وأعرض البيانات باستخدام Excel وPower BI وSQL لاستخلاص رؤى ودعم اتخاذ قرارات تعتمد على البيانات.",
+    frontend: "الواجهة الأمامية",
+    backend: "الواجهة الخلفية",
+    dataAnalysis: "تحليل البيانات",
+    projects: "المشاريع",
+    project1Title: "موقع اختبار ذكي",
+    project1Desc: "يمكن للمشرف إنشاء اختبارات، ويمكن للطلاب تأديتها ورؤية النتائج في الوقت الفعلي.",
+    project2Title: "مدونة شخصية",
+    project2Desc: "يمكن للمدونين إنشاء ونشر وإدارة مدوناتهم بسهولة.",
+    project3Title: "نظام مواقف السيارات",
+    project3Desc: "يمكن للمستخدمين تسجيل الدخول، ورؤية الأماكن المتاحة، وحجز مواقف في الوقت الفعلي.",
+    contact: "تواصل معي",
+    contactSub: "هل لديك مشروع في ذهنك؟ تواصل معي من هنا",
+    findMe: "تجدني على",
+    namePlaceholder: "الاسم",
+    emailPlaceholder: "البريد الإلكتروني",
+    messagePlaceholder: "رسالتك",
+    sendBtn: "إرسال",
+    scrollDown: "مرر للأسفل"
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelector(".featured-text-card span").innerText = translations[lang].name;
+  document.querySelector(".featured-text-info p").innerText = translations[lang].title;
+  document.querySelector("#about .top-header h1").innerText = translations[lang].about;
+  document.querySelector(".about-info p").innerText = translations[lang].aboutContent;
+  document.querySelectorAll(".skills-box")[0].querySelector(".skills-header h3").innerText = translations[lang].frontend;
+  document.querySelectorAll(".skills-box")[1].querySelector(".skills-header h3").innerText = translations[lang].backend;
+  document.querySelectorAll(".skills-box")[2].querySelector(".skills-header h3").innerText = translations[lang].dataAnalysis;
+  document.querySelector("#projects .top-header h1").innerText = translations[lang].projects;
+  
+  const projectBoxes = document.querySelectorAll(".project-box");
+  projectBoxes[0].querySelector("h3").innerText = translations[lang].project1Title;
+  projectBoxes[0].querySelector("label").innerText = translations[lang].project1Desc;
+  projectBoxes[1].querySelector("h3").innerText = translations[lang].project2Title;
+  projectBoxes[1].querySelector("label").innerText = translations[lang].project2Desc;
+  projectBoxes[2].querySelector("h3").innerText = translations[lang].project3Title;
+  projectBoxes[2].querySelector("label").innerText = translations[lang].project3Desc;
+
+  document.querySelector("#contact .top-header h1").innerText = translations[lang].contact;
+  document.querySelector("#contact .top-header span").innerText = translations[lang].contactSub;
+  document.querySelector(".contact-info h2").innerHTML = translations[lang].findMe + '<i class="uil uil-corner-right-down"></i>';
+  
+  document.querySelector("input[name='Name']").placeholder = translations[lang].namePlaceholder;
+  document.querySelector("input[name='Email']").placeholder = translations[lang].emailPlaceholder;
+  document.querySelector("textarea[name='Message']").placeholder = translations[lang].messagePlaceholder;
+  document.querySelector(".form-button button").innerHTML = translations[lang].sendBtn + ' <i class="uil uil-message"></i>';
+  
+  document.querySelector(".scroll-btn p").innerText = translations[lang].scrollDown;
+
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+}
