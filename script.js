@@ -31,14 +31,6 @@ function myMenuFunction(){
   }
 
 
-/* ----- TYPING EFFECT ----- */
- let typingEffect = new Typed(".typedText",{
-    strings : ["Software Eng","Data Analyst"],
-    loop : true,
-    typeSpeed : 100, 
-    backSpeed : 80,
-    backDelay : 2000
- })
 
 
 /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
@@ -137,13 +129,18 @@ toggle.addEventListener("click", () => {
   const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
   localStorage.setItem("theme", theme);
 });
-
-// Load stored theme on page load
+// Load stored theme and language on page load
 window.addEventListener("DOMContentLoaded", () => {
+  // Load dark mode preference
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
   }
+
+  // Load language preference
+  const savedLang = localStorage.getItem("lang") || "en"; // Default to English
+  setLanguage(savedLang);
 });
+
  // Arabic And English 
 
  const translations = {
@@ -169,13 +166,18 @@ window.addEventListener("DOMContentLoaded", () => {
     emailPlaceholder: "Email",
     messagePlaceholder: "Message",
     sendBtn: "Send",
-    scrollDown: "Scroll Down"
+    scrollDown: "Scroll Down",
+     navHome: "Home",
+  navAbout: "About",
+  navProjects: "Projects",
+  navContact: "Contact",
+  typing: ["Software Engineer", "Data Analyst"]
   },
   ar: {
     name: "عبدالعزيز النزلي",
     title: "مهندس برمجيات ومحلل بيانات شغوف ببناء تطبيقات ذكية تركز على المستخدم واستخلاص الرؤى من البيانات.",
     about: "نبذة عني",
-    aboutContent: "أنا مهندس برمجيات بخلفية في تطوير الويب وتحليل البيانات. أقوم بتطوير مواقع متجاوبة باستخدام HTML وCSS وJavaScript وPHP وMySQL. بالإضافة إلى ذلك، أحلل وأعرض البيانات باستخدام Excel وPower BI وSQL لاستخلاص رؤى ودعم اتخاذ قرارات تعتمد على البيانات.",
+    aboutContent: " مهندس برمجيات مهتم في تطوير الويب وتحليل البيانات. أقوم بتطوير مواقع باستخدام HTML,CSS,JavaScript,PHP, وMySQL. بالإضافة إلى ذلك، أحلل وأعرض البيانات باستخدام Excel وPower BI وSQL لاستخلاص رؤى ودعم اتخاذ قرارات تعتمد على البيانات.",
     frontend: "الواجهة الأمامية",
     backend: "الواجهة الخلفية",
     dataAnalysis: "تحليل البيانات",
@@ -185,7 +187,7 @@ window.addEventListener("DOMContentLoaded", () => {
     project2Title: "مدونة شخصية",
     project2Desc: "يمكن للمدونين إنشاء ونشر وإدارة مدوناتهم بسهولة.",
     project3Title: "نظام مواقف السيارات",
-    project3Desc: "يمكن للمستخدمين تسجيل الدخول، ورؤية الأماكن المتاحة، وحجز مواقف في الوقت الفعلي.",
+    project3Desc: "يمكن للمستخدمين تسجيل الدخول، ورؤية المواقف المتاحة، وحجز مواقف في الوقت الفعلي.",
     contact: "تواصل معي",
     contactSub: "هل لديك مشروع في ذهنك؟ تواصل معي من هنا",
     findMe: "تجدني على",
@@ -193,11 +195,19 @@ window.addEventListener("DOMContentLoaded", () => {
     emailPlaceholder: "البريد الإلكتروني",
     messagePlaceholder: "رسالتك",
     sendBtn: "إرسال",
-    scrollDown: "مرر للأسفل"
+    scrollDown: "مرر للأسفل",
+      navHome: "الرئيسية",
+  navAbout: "عني",
+  navProjects: "المشاريع",
+  navContact: "للتواصل",
+  typing: ["مهندس برمجيات", "محلل بيانات"]
+
   }
 };
 
 function setLanguage(lang) {
+  localStorage.setItem("lang", lang); // Save selected language
+
   document.querySelector(".featured-text-card span").innerText = translations[lang].name;
   document.querySelector(".featured-text-info p").innerText = translations[lang].title;
   document.querySelector("#about .top-header h1").innerText = translations[lang].about;
@@ -206,7 +216,12 @@ function setLanguage(lang) {
   document.querySelectorAll(".skills-box")[1].querySelector(".skills-header h3").innerText = translations[lang].backend;
   document.querySelectorAll(".skills-box")[2].querySelector(".skills-header h3").innerText = translations[lang].dataAnalysis;
   document.querySelector("#projects .top-header h1").innerText = translations[lang].projects;
-  
+  document.getElementById("nav-home").innerText = translations[lang].navHome;
+document.getElementById("nav-about").innerText = translations[lang].navAbout;
+document.getElementById("nav-projects").innerText = translations[lang].navProjects;
+document.getElementById("nav-contact").innerText = translations[lang].navContact;
+
+
   const projectBoxes = document.querySelectorAll(".project-box");
   projectBoxes[0].querySelector("h3").innerText = translations[lang].project1Title;
   projectBoxes[0].querySelector("label").innerText = translations[lang].project1Desc;
@@ -218,13 +233,27 @@ function setLanguage(lang) {
   document.querySelector("#contact .top-header h1").innerText = translations[lang].contact;
   document.querySelector("#contact .top-header span").innerText = translations[lang].contactSub;
   document.querySelector(".contact-info h2").innerHTML = translations[lang].findMe + '<i class="uil uil-corner-right-down"></i>';
-  
+
   document.querySelector("input[name='Name']").placeholder = translations[lang].namePlaceholder;
   document.querySelector("input[name='Email']").placeholder = translations[lang].emailPlaceholder;
   document.querySelector("textarea[name='Message']").placeholder = translations[lang].messagePlaceholder;
   document.querySelector(".form-button button").innerHTML = translations[lang].sendBtn + ' <i class="uil uil-message"></i>';
-  
+
   document.querySelector(".scroll-btn p").innerText = translations[lang].scrollDown;
 
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+  if (window.typingEffect) {
+  window.typingEffect.destroy(); // Remove previous instance
 }
+
+window.typingEffect = new Typed(".typedText", {
+  strings: translations[lang].typing,
+  loop: true,
+  typeSpeed: 100,
+  backSpeed: 80,
+  backDelay: 2000
+});
+
+}
+
