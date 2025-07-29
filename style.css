@@ -16,6 +16,26 @@
     --third-color: rgb(192, 166, 49);
     --first-shadow-color: rgba(0, 0, 0, 0.1);
 
+     /* 🔽 Add these for n8n chat */
+    --chat--color-primary: #6c5ce7;
+    --chat--color-primary-shade-50: #1e3a8a;
+    --chat--color-primary-shade-100: #1e2f6b;
+    --chat--color-secondary: #c3cbc8;
+    --chat--color-secondary-shade-50: #0ea36f;
+
+    --chat--color-white: #f7f2f2;
+    --chat--color-light: #f9fafb;
+    --chat--color-dark: rgb(110, 87, 224);
+
+    --chat--message--user--background: var(--chat--color-secondary);
+    --chat--message--user--color: var(--chat--color-white);
+    --chat--message--bot--background: var(--chat--color-white);
+    --chat--message--bot--color: var(--chat--color-dark);
+
+    --chat--toggle--background: var(--chat--color-primary);
+    --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+    --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+
 }
 
 body.dark-mode {
@@ -31,6 +51,8 @@ body.dark-mode {
     --second-color: #6c5ce7;
     --third-color: #fbc531;
     --first-shadow-color: rgba(19, 1, 1, 0.1);
+
+    
 }
 
 /* ----- BASE ----- */

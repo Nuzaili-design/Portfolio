@@ -5,43 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdulaziz</title>
+    
 <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 <script type="module">
 	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
 	createChat({
-		webhookUrl: 'https://azizahmed.app.n8n.cloud/webhook/9d50ab2a-02de-4921-9fa5-fc7b43238289/chat' 
-	});
-
-    createChat({
-	webhookUrl: '',
-	webhookConfig: {
-		method: 'POST',
-		headers: {}
-	},
-	target: '#n8n-chat',
-	mode: 'window',
-	chatInputKey: 'chatInput',
-	chatSessionKey: 'sessionId',
-	loadPreviousSession: true,
-	metadata: {},
-	showWelcomeScreen: false,
-	defaultLanguage: 'en',
-	initialMessages: [
-		'Hi there!',
-		'My name is Zezo. How can I assist you today?'
-	],
-	i18n: {
-		en: {
-			title: 'Hello! 👋',
-			subtitle: "Start a chat. We're here to help you 24/7.",
-			footer: '',
-			getStarted: 'New Conversation',
-			inputPlaceholder: 'Type your question..',
+		webhookUrl: 'https://azizahmed.app.n8n.cloud/webhook/9d50ab2a-02de-4921-9fa5-fc7b43238289/chat',
+		webhookConfig: {
+			method: 'POST',
+			headers: {}
 		},
-	},
-});
+		target: '#n8n-chat',
+		mode: 'window',
+		chatInputKey: 'chatInput',
+		chatSessionKey: 'sessionId',
+		loadPreviousSession: true,
+		metadata: {},
+		showWelcomeScreen: false,
+		defaultLanguage: 'en',
+		initialMessages: [
+			'Hi there!',
+			'My name is Zezo. How can I assist you today?'
+		],
+		i18n: {
+			en: {
+				title: 'Hello! 👋',
+				subtitle: "Start a chat. We're here to help you 24/7.",
+				footer: '',
+				getStarted: 'New Conversation',
+				inputPlaceholder: 'Type your question..',
+			}
+		}
+	});
 </script>
+
      <!-- UNICONS -->
      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
      
