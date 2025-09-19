@@ -1,13 +1,28 @@
-/* ----- NAVIGATION BAR FUNCTION ----- */ 
-function myMenuFunction(){
-    let menuBtn = document.getElementById("myNavMenu");
+/* ----- NAVIGATION BAR FUNCTION ----- */
+function myMenuFunction() {
+  let menuBtn = document.getElementById("myNavMenu");
 
-    if(menuBtn.className === "nav-menu"){
-      menuBtn.className += " responsive";
-    } else {
-      menuBtn.className = "nav-menu"; 
-    }
+  // Toggle responsive class
+  if (menuBtn.classList.contains("responsive")) {
+    menuBtn.classList.remove("responsive");
+  } else {
+    menuBtn.classList.add("responsive");
   }
+
+  // Attach link click listeners only once
+  const navLinks = menuBtn.querySelectorAll(".nav-link");
+  navLinks.forEach(link => {
+    link.onclick = () => {
+      menuBtn.classList.remove("responsive"); // Close menu on click
+    };
+  });
+}
+// Close button functionality
+document.getElementById("navCloseBtn").addEventListener("click", () => {
+  const navMenu = document.getElementById("myNavMenu");
+  navMenu.classList.remove("responsive");
+});
+
 
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
   window.onscroll = function() {headerShadow()};
@@ -160,7 +175,7 @@ window.addEventListener("DOMContentLoaded", () => {
     project3Title: "Car Parking System",
     project3Desc: "Users can log in, view available slots, and book parking in real-time using QR Codes.",
     contact: "Get in touch",
-    contactSub: "Do you have a project in your mind, contact me here",
+    contactSub: "Do you have a project in your mind? contact me here",
     findMe: "Find Me",
     namePlaceholder: "Name",
     emailPlaceholder: "Email",
@@ -177,7 +192,7 @@ window.addEventListener("DOMContentLoaded", () => {
     name: "عبدالعزيز النزيلي",
     title: "مهندس برمجيات ومحلل بيانات شغوف ببناء تطبيقات ذكية تركز على المستخدم واستخلاص الرؤى من البيانات.",
     about: "نبذة عني",
-    aboutContent: " مهندس برمجيات مهتم في تطوير الويب وتحليل البيانات. أقوم بتطوير مواقع باستخدام HTML,CSS,JavaScript,PHP, وMySQL. بالإضافة إلى ذلك، أحلل وأعرض البيانات باستخدام Excel وPower BI وSQL لاستخلاص رؤى ودعم اتخاذ قرارات تعتمد على البيانات.",
+    aboutContent: " مهندس برمجيات مهتم في تطوير الويب وتحليل البيانات. أقوم بتطوير مواقع الويب باستخدام HTML,CSS,JavaScript,PHP, وMySQL. بالإضافة إلى ذلك، أحلل وأعرض البيانات باستخدام Excel وPower BI وSQL لاستخلاص رؤى ودعم اتخاذ قرارات تعتمد على البيانات.",
     frontend: "الواجهة الأمامية",
     backend: "الواجهة الخلفية",
     dataAnalysis: "تحليل البيانات",
@@ -239,7 +254,7 @@ document.getElementById("nav-contact").innerText = translations[lang].navContact
   document.querySelector("textarea[name='Message']").placeholder = translations[lang].messagePlaceholder;
   document.querySelector(".form-button button").innerHTML = translations[lang].sendBtn + ' <i class="uil uil-message"></i>';
 
-  document.querySelector(".scroll-btn p").innerText = translations[lang].scrollDown;
+  
 
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
