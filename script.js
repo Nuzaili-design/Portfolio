@@ -171,10 +171,10 @@ window.addEventListener("DOMContentLoaded", () => {
   navAbout: "About",
   navProjects: "Projects",
   navContact: "Contact",
-  typing: ["Software Engineer", "Data Analyst"]
+  typing: ["Software Eng", "Data Analyst"]
   },
   ar: {
-    name: "عبدالعزيز النزلي",
+    name: "عبدالعزيز النزيلي",
     title: "مهندس برمجيات ومحلل بيانات شغوف ببناء تطبيقات ذكية تركز على المستخدم واستخلاص الرؤى من البيانات.",
     about: "نبذة عني",
     aboutContent: " مهندس برمجيات مهتم في تطوير الويب وتحليل البيانات. أقوم بتطوير مواقع باستخدام HTML,CSS,JavaScript,PHP, وMySQL. بالإضافة إلى ذلك، أحلل وأعرض البيانات باستخدام Excel وPower BI وSQL لاستخلاص رؤى ودعم اتخاذ قرارات تعتمد على البيانات.",
